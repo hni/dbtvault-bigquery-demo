@@ -1,0 +1,6 @@
+myenv/
+logs/
+dbt_modules/
+target/
+.DS_Store
+

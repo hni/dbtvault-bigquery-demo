@@ -1,0 +1,3 @@
+packages:
+  - git: "https://github.com/hni/dbtvault-bigquery"
+    revision: 0.6.1-bq

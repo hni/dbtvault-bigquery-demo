@@ -1,0 +1,14 @@
+SELECT
+    b.O_ORDERKEY AS ORDER_ID,
+    b.O_CUSTKEY AS CUSTOMER_ID,
+    b.O_ORDERDATE AS ORDER_DATE,
+    DATE_ADD(b.O_ORDERDATE, INTERVAL 20 DAY) AS TRANSACTION_DATE,
+    CAST(RPAD(CONCAT(b.O_ORDERKEY, b.O_CUSTKEY, FORMAT_DATE('%Y%m%d', b.O_ORDERDATE)), 24, '0') as NUMERIC) AS TRANSACTION_NUMBER,
+    b.O_TOTALPRICE AS AMOUNT,
+    CASE ABS(MOD(CAST (RAND() AS INT64), 2)) + 1
+        WHEN 1 THEN 'DR'
+        WHEN 2 THEN 'CR'
+    END AS TYPE
+FROM {{ source('tpch_sample', 'orders') }}  AS b
+LEFT JOIN {{ source('tpch_sample', 'customer') }} AS c ON b.O_CUSTKEY = c.C_CUSTKEY
+WHERE b.O_ORDERDATE = '{{ var('load_date') }}'
