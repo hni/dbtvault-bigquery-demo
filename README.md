@@ -5,7 +5,7 @@
 ### dbt models for dbtvault BigQuery Demonstration
 
 This is a downloadable example dbt project using [dbtvault-bigquery](https://github.com/hni/dbtvault-bigquery), a fork of [dbtvault](https://github.com/Datavault-UK/dbtvault), 
-to create a Data Vault 2.0 Data Warehouse in BigQuery based on the TPC-H dataset.
+to create a Data Vault 2.0 Data Warehouse in BigQuery based on the TPC-H dataset. The demo is based on https://dbtvault.readthedocs.io/en/latest/worked_example/we_worked_example/.
 
 ---
 
