@@ -494,6 +494,21 @@ models:
             src_eff: 'EFFECTIVE_FROM'
             src_ldts: 'LOADDATE'
             src_source: 'SOURCE'
+    business_vault:
+      schema: 'BVLT'
+      tags:
+        - 'bvlt'
+      materialized: view
+    data_mart:
+      schema: 'DM'
+      tags:
+        - 'dm'
+      materialized: view
+    business_intelligence:
+      schema: 'BI'
+      tags:
+        - 'bi'
+      materialized: view
   vars:
     load_date: '1992-01-11'
     hash: 'MD5'
