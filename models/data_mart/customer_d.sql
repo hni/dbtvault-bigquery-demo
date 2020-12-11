@@ -12,6 +12,6 @@ C.customer_pk
     ELSE 'unexpected' 
 END customer_accsegment
 ,SD.customer_mktsegment
-FROM bq-data-vault.demo_VLT.hub_customer C
-LEFT JOIN bq-data-vault.demo_VLT.sat_order_customer_details SD
+FROM {{ref('hub_customer')}} C
+LEFT JOIN {{ref('sat_order_customer_details')}} SD
 USING(customer_pk)
